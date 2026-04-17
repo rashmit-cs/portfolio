@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+/* 🔥 IMPORTANT FIX FOR HIRE ME BUTTON */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background: #0a0f1c;
@@ -124,6 +130,11 @@ body {
 .section h2 {
     margin-bottom: 20px;
     color: #38bdf8;
+}
+
+/* 🔥 EXTRA FIX FOR CONTACT SCROLL */
+#contact {
+    scroll-margin-top: 100px;
 }
 
 /* ================= GRID ================= */
