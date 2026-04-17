@@ -1,60 +1,116 @@
-// ===== Typing Effect =====
-const words = ["Software Developer", "Web Developer", "Problem Solver"];
-let wordIndex = 0;
-let charIndex = 0;
+// ================= TYPING EFFECT =================
+const words = ["Software Developer", "Web Developer", "Freelancer"];
+
+let i = 0;
+let j = 0;
+let current = "";
 let isDeleting = false;
 
+// get typing element safely
 const typingElement = document.querySelector(".typing");
 
-function typeEffect() {
-    const currentWord = words[wordIndex];
+function type() {
 
-    if (!isDeleting) {
-        typingElement.textContent = currentWord.substring(0, charIndex++);
+    // safety check (important)
+    if (!typingElement) return;
+
+    current = words[i];
+
+    // typing / deleting logic
+    if (isDeleting) {
+        j--;
     } else {
-        typingElement.textContent = currentWord.substring(0, charIndex--);
+        j++;
     }
 
-    if (charIndex === currentWord.length) {
+    typingElement.textContent = current.substring(0, j);
+
+    // word complete → start deleting
+    if (!isDeleting && j === current.length) {
         isDeleting = true;
-        setTimeout(typeEffect, 1000); // pause before deleting
+        setTimeout(type, 1000);
         return;
     }
 
-    if (charIndex === 0) {
+    // word deleted → move to next
+    if (isDeleting && j === 0) {
         isDeleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
+        i = (i + 1) % words.length;
     }
 
-    setTimeout(typeEffect, isDeleting ? 50 : 100);
+    // typing speed
+    setTimeout(type, isDeleting ? 50 : 100);
 }
 
-typeEffect();
+// start typing
+type();
 
 
-// ===== Scroll Reveal Animation =====
+// ================= SCROLL REVEAL ANIMATION =================
 const observer = new IntersectionObserver((entries) => {
+
     entries.forEach(entry => {
+
         if (entry.isIntersecting) {
             entry.target.classList.add("show");
         }
+
     });
+
 }, {
     threshold: 0.2
 });
 
+// observe all hidden elements
 document.querySelectorAll(".hidden").forEach(el => {
     observer.observe(el);
 });
 
 
-// ===== Navbar Shadow on Scroll =====
-const navbar = document.querySelector(".navbar");
+// ================= SCROLL TO TOP BUTTON =================
+const scrollBtn = document.getElementById("scrollTopBtn");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = "0 2px 10px rgba(0,0,0,0.5)";
-    } else {
-        navbar.style.boxShadow = "none";
-    }
+// safety check
+if (scrollBtn) {
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 300) {
+            scrollBtn.style.display = "flex";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+
+    });
+
+    scrollBtn.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    });
+
+}
+
+
+// ================= SMOOTH SCROLL NAVIGATION =================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        // safety check
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+    });
+
 });
