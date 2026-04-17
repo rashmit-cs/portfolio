@@ -1,66 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rashmit Bhosale | Developer</title>
-<link rel="stylesheet" href="style.css">
+
+    <!-- ================= META ================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ================= TITLE ================= -->
+    <title>Rashmit Bhosale | Developer</title>
+
+    <!-- ================= CSS ================= -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
+<!-- ================= NAVBAR ================= -->
 <header class="navbar">
+
     <h2>RB.</h2>
+
     <nav>
         <a href="#about">About</a>
+        <a href="#services">Services</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </nav>
+
 </header>
 
+<!-- ================= HERO ================= -->
 <section class="hero">
-    <h1>Rashmit Bhosale</h1>
+
+    <h1>I Design & Build Web, Apps and Smart Systems</h1>
+
     <p class="typing"></p>
-    <a href="#" class="btn">View Work</a>
+
+    <a href="#contact" class="btn">Hire Me</a>
+
 </section>
 
+<!-- ================= ABOUT ================= -->
 <section id="about" class="section hidden">
+
     <h2>About Me</h2>
+
     <p>
-        Computer Science student passionate about building modern, scalable, and user-focused web applications.
-        I focus on clean design, performance, and real-world usability.
+        I am Rashmit Bhosale, a developer based in Goa, India. I specialize in building
+        modern, responsive, and user-focused web applications with clean UI, strong performance,
+        and real-world usability. I enjoy solving problems through code and creating meaningful
+        digital experiences.
     </p>
+
 </section>
 
+<!-- ================= SERVICES ================= -->
+<section id="services" class="section hidden">
+
+    <h2>Services</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Web Development</h3>
+            <p>
+                I build responsive and modern websites that work seamlessly across all devices,
+                focusing on performance, scalability, and clean design.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>UI/UX Design</h3>
+            <p>
+                I design clean and user-friendly interfaces using Figma, ensuring a smooth
+                and engaging user experience.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Automation</h3>
+            <p>
+                I develop Python and shell scripts to automate repetitive tasks and improve
+                workflow efficiency.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PROJECTS ================= -->
 <section id="projects" class="section hidden">
+
     <h2>Projects</h2>
 
-    <div class="card">
-        <h3>Advanced Portfolio</h3>
-        <p>Modern responsive portfolio with animations and UI/UX focus.</p>
-    </div>
+    <div class="grid">
 
-    <div class="card">
-        <h3>Task Manager App</h3>
-        <p>Dynamic task app with real-time interaction using JavaScript.</p>
-    </div>
+        <!-- ================= PROJECT 1 ================= -->
+        <div class="card">
 
-    <div class="card">
-        <h3>Student Management System</h3>
-        <p>Python-based CRUD system for managing student data.</p>
+            <img src="images/tictactoe.png" alt="Tic Tac Toe Project">
+
+            <h3>Tic Tac Toe Game</h3>
+
+            <p>
+                Built an interactive browser-based Tic Tac Toe game using JavaScript,
+                featuring real-time gameplay logic and a clean responsive UI.
+            </p>
+
+            <div class="links">
+                <a href="https://rashmit-cs.github.io/tictactoe/" target="_blank">🌐 Live</a>
+                <a href="https://github.com/rashmit-cs/tictactoe" target="_blank">💻 Code</a>
+            </div>
+
+        </div>
+
+        <!-- ================= PROJECT 2 ================= -->
+        <div class="card">
+
+            <img src="images/cams.png" alt="CAMS App">
+
+            <h3>CAMS App</h3>
+
+            <p>
+                Developed a College Activity Management System (CAMS) mobile application
+                to manage announcements, updates, and student activities efficiently.
+            </p>
+
+            <div class="links">
+                <a href="https://github.com/rashmit-cs/cams" target="_blank">💻 Code</a>
+            </div>
+
+        </div>
+
+        <!-- ================= PROJECT 3 ================= -->
+        <div class="card">
+
+            <img src="images/figma.png" alt="Eco Tourism UI">
+
+            <h3>Eco Tourism App (Figma)</h3>
+
+            <p>
+                Designed a complete mobile UI/UX prototype for an eco-tourism application,
+                including search functionality, trip listings, and navigation flow using Figma.
+            </p>
+
+            <div class="links">
+                <a href="https://www.figma.com/design/cq2MvI7oUdu8PXXe0fAoCv/ECO-TOURISM" target="_blank">🎨 View Design</a>
+            </div>
+
+        </div>
+
     </div>
 
 </section>
 
+<!-- ================= CONTACT ================= -->
 <section id="contact" class="section hidden">
-    <h2>Contact</h2>
-    <p>Email: rashmitbhosale@email.com</p>
+
+    <h2>Contact Me</h2>
+
+    <form id="contact-form" action="https://formspree.io/f/mdaygobv" method="POST">
+
+        <input type="text" name="name" placeholder="Your Name" required>
+
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+
+    </form>
+
+    <p class="extra-contact">
+        📧 Email: rashmitit@gmail.com <br>
+        💻 GitHub: github.com/rashmit-cs
+    </p>
+
 </section>
 
+<!-- ================= FOOTER ================= -->
 <footer>
+
     <p>© 2026 Rashmit Bhosale</p>
+
 </footer>
 
+<!-- ================= SCROLL TO TOP BUTTON ================= -->
+<button id="scrollTopBtn">↑</button>
+
+<!-- ================= JS ================= -->
 <script src="script.js"></script>
+
 </body>
 </html>
