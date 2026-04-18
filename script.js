@@ -1,4 +1,33 @@
-// ================= CUSTOM CURSOR =================
+// ================= HAMBURGER MENU =================
+const hamburger = document.getElementById("hamburger");
+const mobileNav = document.getElementById("mobileNav");
+const mobileNavClose = document.getElementById("mobileNavClose");
+
+function openMobileNav() {
+    mobileNav.classList.add("open");
+    hamburger.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closeMobileNav() {
+    mobileNav.classList.remove("open");
+    hamburger.classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+if (hamburger) hamburger.addEventListener("click", openMobileNav);
+if (mobileNavClose) mobileNavClose.addEventListener("click", closeMobileNav);
+
+document.querySelectorAll(".mobile-nav-link").forEach(link => {
+    link.addEventListener("click", () => {
+        closeMobileNav();
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth" }), 300);
+    });
+});
+
+
+
 const cursor = document.getElementById("cursor");
 const cursorTrail = document.getElementById("cursorTrail");
 
