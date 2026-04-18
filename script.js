@@ -1,23 +1,13 @@
 // ================= HAMBURGER MENU =================
 const hamburger = document.getElementById("hamburger");
-const mobileNav = document.getElementById("mobileNav");
+const mobileNav  = document.getElementById("mobileNav");
 const mobileNavClose = document.getElementById("mobileNavClose");
 
-function openMobileNav() {
-    mobileNav.classList.add("open");
-    hamburger.classList.add("open");
-    document.body.style.overflow = "hidden";
-}
-
-function closeMobileNav() {
-    mobileNav.classList.remove("open");
-    hamburger.classList.remove("open");
-    document.body.style.overflow = "";
-}
+function openMobileNav()  { mobileNav.classList.add("open"); hamburger.classList.add("open"); document.body.style.overflow = "hidden"; }
+function closeMobileNav() { mobileNav.classList.remove("open"); hamburger.classList.remove("open"); document.body.style.overflow = ""; }
 
 if (hamburger) hamburger.addEventListener("click", openMobileNav);
 if (mobileNavClose) mobileNavClose.addEventListener("click", closeMobileNav);
-
 document.querySelectorAll(".mobile-nav-link").forEach(link => {
     link.addEventListener("click", () => {
         closeMobileNav();
@@ -26,276 +16,179 @@ document.querySelectorAll(".mobile-nav-link").forEach(link => {
     });
 });
 
-
-
+// ================= CUSTOM CURSOR =================
 const cursor = document.getElementById("cursor");
 const cursorTrail = document.getElementById("cursorTrail");
+let mx = 0, my = 0, tx = 0, ty = 0;
 
-let mouseX = 0, mouseY = 0;
-let trailX = 0, trailY = 0;
-
-document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    if (cursor) {
-        cursor.style.left = mouseX + "px";
-        cursor.style.top = mouseY + "px";
-    }
+document.addEventListener("mousemove", e => {
+    mx = e.clientX; my = e.clientY;
+    if (cursor) { cursor.style.left = mx + "px"; cursor.style.top = my + "px"; }
 });
 
-function animateTrail() {
-    trailX += (mouseX - trailX) * 0.12;
-    trailY += (mouseY - trailY) * 0.12;
-    if (cursorTrail) {
-        cursorTrail.style.left = trailX + "px";
-        cursorTrail.style.top = trailY + "px";
-    }
+(function animateTrail() {
+    tx += (mx - tx) * 0.11;
+    ty += (my - ty) * 0.11;
+    if (cursorTrail) { cursorTrail.style.left = tx + "px"; cursorTrail.style.top = ty + "px"; }
     requestAnimationFrame(animateTrail);
-}
-animateTrail();
+})();
 
-
-// ================= CANVAS PARTICLE BACKGROUND =================
+// ================= CANVAS PARTICLES =================
 const canvas = document.getElementById("bg-canvas");
 const ctx = canvas.getContext("2d");
-
 let W = canvas.width = window.innerWidth;
 let H = canvas.height = window.innerHeight;
+let particles = [];
 
 window.addEventListener("resize", () => {
     W = canvas.width = window.innerWidth;
     H = canvas.height = window.innerHeight;
-    initParticles();
+    initP();
 });
 
-const NUM_PARTICLES = 70;
-let particles = [];
-
-function initParticles() {
-    particles = [];
-    for (let i = 0; i < NUM_PARTICLES; i++) {
-        particles.push({
-            x: Math.random() * W,
-            y: Math.random() * H,
-            r: Math.random() * 1.5 + 0.3,
-            vx: (Math.random() - 0.5) * 0.25,
-            vy: (Math.random() - 0.5) * 0.25,
-            alpha: Math.random() * 0.5 + 0.1
-        });
-    }
+function initP() {
+    particles = Array.from({ length: 65 }, () => ({
+        x: Math.random() * W, y: Math.random() * H,
+        r: Math.random() * 1.4 + 0.3,
+        vx: (Math.random() - .5) * .22,
+        vy: (Math.random() - .5) * .22,
+        alpha: Math.random() * .45 + .08
+    }));
 }
+initP();
 
-initParticles();
-
-function drawParticles() {
+(function drawP() {
     ctx.clearRect(0, 0, W, H);
-
-    // Draw connecting lines
     for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
             const dx = particles[i].x - particles[j].x;
             const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 130) {
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(200,246,93,${0.04 * (1 - dist / 130)})`;
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
+            const d = Math.sqrt(dx*dx + dy*dy);
+            if (d < 120) {
+                ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(200,246,93,${.035 * (1 - d/120)})`; ctx.lineWidth = .5; ctx.stroke();
             }
         }
     }
-
-    // Draw particles
     particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200,246,93,${p.alpha})`;
-        ctx.fill();
-
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = W;
-        if (p.x > W) p.x = 0;
-        if (p.y < 0) p.y = H;
-        if (p.y > H) p.y = 0;
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(200,246,93,${p.alpha})`; ctx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
     });
-
-    requestAnimationFrame(drawParticles);
-}
-
-drawParticles();
-
+    requestAnimationFrame(drawP);
+})();
 
 // ================= TYPING EFFECT =================
-const words = ["Software Developer", "Web Developer", "UI/UX Designer", "Freelancer"];
-let i = 0, j = 0, isDeleting = false;
+const words = ["Full-Stack Developer", "UI/UX Designer", "Mobile App Developer", "3D Artist", "IoT Maker", "Automation Engineer"];
+let wi = 0, wj = 0, deleting = false;
 const typingEl = document.querySelector(".typing");
 
 function type() {
     if (!typingEl) return;
-    const current = words[i];
-    isDeleting ? j-- : j++;
-    typingEl.textContent = current.substring(0, j);
-
-    if (!isDeleting && j === current.length) {
-        isDeleting = true;
-        setTimeout(type, 1400);
-        return;
-    }
-    if (isDeleting && j === 0) {
-        isDeleting = false;
-        i = (i + 1) % words.length;
-    }
-    setTimeout(type, isDeleting ? 40 : 80);
+    const cur = words[wi];
+    deleting ? wj-- : wj++;
+    typingEl.textContent = cur.substring(0, wj);
+    if (!deleting && wj === cur.length) { deleting = true; setTimeout(type, 1600); return; }
+    if (deleting && wj === 0) { deleting = false; wi = (wi + 1) % words.length; }
+    setTimeout(type, deleting ? 38 : 78);
 }
-
 type();
-
 
 // ================= NAVBAR SCROLL =================
 const navbar = document.getElementById("navbar");
 window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
+    navbar.classList.toggle("scrolled", window.scrollY > 50);
 });
-
 
 // ================= SCROLL REVEAL =================
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+}, { threshold: 0.1 });
+document.querySelectorAll(".reveal").forEach(el => revealObs.observe(el));
+
+// ================= SKILL BAR ANIMATION =================
+const skillObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.classList.add("animate");
+            skillObs.unobserve(e.target);
         }
     });
-}, { threshold: 0.12 });
-
-document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
-
+}, { threshold: 0.3 });
+document.querySelectorAll(".skill-chip").forEach(el => skillObs.observe(el));
 
 // ================= COUNTER ANIMATION =================
-function animateCounter(el) {
+function counter(el) {
     const target = parseInt(el.getAttribute("data-target"));
-    const duration = 1800;
-    const start = performance.now();
-
-    function update(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = 1 - Math.pow(1 - progress, 4);
+    const t0 = performance.now();
+    (function tick(now) {
+        const p = Math.min((now - t0) / 1800, 1);
+        const ease = 1 - Math.pow(1 - p, 4);
         el.textContent = Math.round(ease * target);
-        if (progress < 1) requestAnimationFrame(update);
-    }
-
-    requestAnimationFrame(update);
+        if (p < 1) requestAnimationFrame(tick);
+    })(t0);
 }
-
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            counterObserver.unobserve(entry.target);
-        }
-    });
+const cntObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { counter(e.target); cntObs.unobserve(e.target); } });
 }, { threshold: 0.5 });
+document.querySelectorAll(".stat-num").forEach(el => cntObs.observe(el));
 
-document.querySelectorAll(".stat-num").forEach(el => counterObserver.observe(el));
-
-
-// ================= 3D TILT EFFECT =================
+// ================= 3D TILT =================
 document.querySelectorAll(".tilt-card").forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const dx = (e.clientX - cx) / (rect.width / 2);
-        const dy = (e.clientY - cy) / (rect.height / 2);
-        card.style.transform = `perspective(800px) rotateY(${dx * 5}deg) rotateX(${-dy * 5}deg) translateZ(4px)`;
+    card.addEventListener("mousemove", e => {
+        const r = card.getBoundingClientRect();
+        const dx = (e.clientX - r.left - r.width/2)  / (r.width/2);
+        const dy = (e.clientY - r.top  - r.height/2) / (r.height/2);
+        card.style.transform = `perspective(900px) rotateY(${dx*5}deg) rotateX(${-dy*5}deg) translateZ(4px)`;
     });
-
     card.addEventListener("mouseleave", () => {
-        card.style.transform = "perspective(800px) rotateY(0) rotateX(0) translateZ(0)";
-        card.style.transition = "transform 0.5s ease";
+        card.style.transition = "transform .5s ease";
+        card.style.transform = "perspective(900px) rotateY(0) rotateX(0) translateZ(0)";
     });
-
-    card.addEventListener("mouseenter", () => {
-        card.style.transition = "none";
-    });
+    card.addEventListener("mouseenter", () => { card.style.transition = "none"; });
 });
-
 
 // ================= SMOOTH SCROLL =================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener("click", function (e) {
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener("click", e => {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute("href"));
-        if (target) target.scrollIntoView({ behavior: "smooth" });
+        const t = document.querySelector(a.getAttribute("href"));
+        if (t) t.scrollIntoView({ behavior: "smooth" });
     });
 });
 
-
-// ================= NAVBAR ACTIVE LINK =================
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-links a");
-
+// ================= ACTIVE NAV =================
+const secEls = document.querySelectorAll("section[id]");
+const navAs  = document.querySelectorAll(".nav-links a");
 window.addEventListener("scroll", () => {
-    let current = "";
-    sections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 120) {
-            current = sec.getAttribute("id");
-        }
-    });
-    navLinks.forEach(link => {
-        link.style.color = link.getAttribute("href") === "#" + current ? "var(--accent)" : "";
-    });
+    let cur = "";
+    secEls.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
+    navAs.forEach(a => { a.style.color = a.getAttribute("href") === "#" + cur ? "var(--accent)" : ""; });
 });
 
-
-// ================= SCROLL TO TOP =================
+// ================= SCROLL TOP =================
 const scrollBtn = document.getElementById("scrollTopBtn");
-
 if (scrollBtn) {
-    window.addEventListener("scroll", () => {
-        scrollBtn.style.display = window.scrollY > 400 ? "flex" : "none";
-    });
-
-    scrollBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+    window.addEventListener("scroll", () => { scrollBtn.style.display = window.scrollY > 400 ? "flex" : "none"; });
+    scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 }
-
 
 // ================= CONTACT FORM =================
 const form = document.getElementById("contact-form");
-const formStatus = document.getElementById("form-status");
-
-if (form && formStatus) {
-    form.addEventListener("submit", async (e) => {
+const status = document.getElementById("form-status");
+if (form && status) {
+    form.addEventListener("submit", async e => {
         e.preventDefault();
-        const data = new FormData(form);
-        const res = await fetch(form.action, {
-            method: "POST",
-            body: data,
-            headers: { "Accept": "application/json" }
-        });
+        status.textContent = "Sending…"; status.style.color = "var(--muted)";
+        const res = await fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } });
         if (res.ok) {
-            formStatus.textContent = "✅ Message sent! I'll reply within 24 hours.";
-            formStatus.style.color = "var(--accent)";
-            form.reset();
+            status.textContent = "✅ Message sent! I'll reply within 24 hours.";
+            status.style.color = "var(--accent)"; form.reset();
         } else {
-            formStatus.textContent = "❌ Something went wrong. Try again.";
-            formStatus.style.color = "#f87171";
+            status.textContent = "❌ Something went wrong. Try again.";
+            status.style.color = "#f87171";
         }
     });
 }
-
-// Add data-index to project info panels for the number decoration
-document.querySelectorAll(".project-item").forEach((item, idx) => {
-    const info = item.querySelector(".project-info");
-    if (info) info.setAttribute("data-index", String(idx + 1).padStart(2, "0"));
-});
