@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rashmit Bhosale — Developer</title>
+    <title>Design.Build. Ship. — Developer & Designer</title>
+    <meta name="description" content="BSc CS Student | Full-Stack Developer, UI/UX Designer, IoT & 3D — based in Goa, India.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,23 +15,19 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-trail" id="cursorTrail"></div>
 
-<!-- CANVAS BACKGROUND -->
+<!-- CANVAS -->
 <canvas id="bg-canvas"></canvas>
-
-<!-- NOISE OVERLAY -->
 <div class="noise-overlay"></div>
 
 <!-- NAVBAR -->
 <header class="navbar" id="navbar">
-    <div class="nav-logo">
-        <span class="logo-mark">RB</span>
-        <span class="logo-dot">.</span>
-    </div>
+    <div class="nav-logo">RB<span class="logo-dot">.</span></div>
     <nav class="nav-links">
-        <a href="#about" data-text="About">About</a>
-        <a href="#services" data-text="Services">Services</a>
-        <a href="#projects" data-text="Projects">Projects</a>
-        <a href="#contact" data-text="Contact">Contact</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
     </nav>
     <div class="nav-status">
         <span class="status-dot"></span>
@@ -41,10 +38,11 @@
     </button>
 </header>
 
-<!-- Mobile nav drawer -->
+<!-- MOBILE DRAWER -->
 <div class="mobile-nav-drawer" id="mobileNav">
     <button class="mobile-nav-close" id="mobileNavClose">×</button>
     <a href="#about" class="mobile-nav-link">About</a>
+    <a href="#skills" class="mobile-nav-link">Skills</a>
     <a href="#services" class="mobile-nav-link">Services</a>
     <a href="#projects" class="mobile-nav-link">Projects</a>
     <a href="#contact" class="mobile-nav-link">Contact</a>
@@ -54,50 +52,42 @@
 <section class="hero" id="hero">
     <div class="hero-eyebrow">
         <span class="eyebrow-line"></span>
-        <span>Based in Goa, India</span>
+        <span>BSc CS Student · Goa, India</span>
         <span class="eyebrow-line"></span>
     </div>
 
     <h1 class="hero-title">
-        <span class="word" data-delay="0">Design.</span>
-        <span class="word accent" data-delay="100">Build.</span>
-        <span class="word" data-delay="200">Ship.</span>
+        <span class="word" style="--d:0.05s">Rashmit</span>
+        <br>
+        <span class="word accent" style="--d:0.15s">Bhosale</span>
     </h1>
 
     <div class="hero-sub">
         <p class="typing-wrap">
-            <span class="typing-label">Currently:</span>
-            <span class="typing"></span>
+            <span class="typing-label">&gt;_</span>
+            <span class="typing"></span><span class="blink-cursor">|</span>
         </p>
-        <p class="hero-desc">Building scalable, responsive digital solutions<br>that actually make a difference.</p>
+        <p class="hero-desc">
+            Full-Stack Dev · UI/UX · 3D · IoT · Mobile · Automation
+        </p>
     </div>
 
     <div class="hero-actions">
-        <a href="#contact" class="btn-primary">
-            <span>Hire Me</span>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <a href="#projects" class="btn-primary">
+            <span>View My Work</span>
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8.5 3M13 7.5L8.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </a>
-        <a href="#projects" class="btn-ghost">See my work</a>
+        <a href="#contact" class="btn-ghost">Hire Me →</a>
     </div>
 
     <div class="hero-stats">
-        <div class="stat">
-            <span class="stat-num" data-target="5">0</span>
-            <span class="stat-plus">+</span>
-            <span class="stat-label">Projects</span>
-        </div>
+        <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-plus">+</span><span class="stat-label">Projects</span></div>
         <div class="stat-divider"></div>
-        <div class="stat">
-            <span class="stat-num" data-target="3">0</span>
-            <span class="stat-plus">+</span>
-            <span class="stat-label">Technologies</span>
-        </div>
+        <div class="stat"><span class="stat-num" data-target="12">0</span><span class="stat-plus">+</span><span class="stat-label">Technologies</span></div>
         <div class="stat-divider"></div>
-        <div class="stat">
-            <span class="stat-num" data-target="100">0</span>
-            <span class="stat-pct">%</span>
-            <span class="stat-label">Responsive</span>
-        </div>
+        <div class="stat"><span class="stat-num" data-target="2">0</span><span class="stat-plus">+</span><span class="stat-label">Years Coding</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num" data-target="100">0</span><span class="stat-pct">%</span><span class="stat-label">Responsive</span></div>
     </div>
 
     <div class="scroll-hint">
@@ -114,119 +104,236 @@
     </div>
     <div class="about-grid">
         <div class="about-text">
-            <p class="about-lead">I'm <strong>Rashmit Bhosale</strong>, a developer from Goa building modern, user-focused digital products.</p>
-            <p>I specialize in clean UI, strong performance, and real-world usability. I enjoy solving problems through code and creating meaningful digital experiences that people actually enjoy using.</p>
+            <p class="about-lead">I'm <strong>Rashmit Bhosale</strong>, a Computer Science undergraduate from Goa who builds across the full stack — web, mobile, desktop, 3D, and hardware.</p>
+            <p>From crafting pixel-perfect UIs in Figma to wiring up Raspberry Pi and Arduino circuits, I love bridging the digital and physical world. I'm currently pursuing my BSc CS at PES's R.N.S College of Arts and Science, graduating April 2026.</p>
+            <p>I hold an NPTEL certification in Python for Data Science and have hands-on workshop experience leading UI/UX design sessions for peers.</p>
+            <div class="about-contact-row">
+                <a href="tel:+919307974659" class="about-contact-chip">📞 +91 93079 74659</a>
+                <a href="mailto:rashmitit@gmail.com" class="about-contact-chip">📧 rashmitit@gmail.com</a>
+                <a href="https://github.com/rashmit-cs" target="_blank" class="about-contact-chip">💻 GitHub</a>
+            </div>
         </div>
-        <div class="about-skills">
-            <div class="skill-tag">HTML / CSS</div>
-            <div class="skill-tag">JavaScript</div>
-            <div class="skill-tag">Python</div>
-            <div class="skill-tag">Figma</div>
-            <div class="skill-tag">Flutter</div>
-            <div class="skill-tag">Shell Scripts</div>
+        <div class="about-right">
+            <div class="edu-card">
+                <div class="edu-icon">🎓</div>
+                <div>
+                    <h4>BSc Computer Science</h4>
+                    <p>PES's R.N.S College of Arts & Science</p>
+                    <span class="edu-year">2023 – 2026 · Farmagudi, Goa</span>
+                </div>
+            </div>
+            <div class="edu-card">
+                <div class="edu-icon">🏫</div>
+                <div>
+                    <h4>Higher Secondary (10+2)</h4>
+                    <p>MES College of Commerce & Science</p>
+                    <span class="edu-year">2021 – 2023 · Zuarinagar, Goa</span>
+                </div>
+            </div>
+            <div class="edu-card cert">
+                <div class="edu-icon">📜</div>
+                <div>
+                    <h4>NPTEL — Python for Data Science</h4>
+                    <p>SWAYAM · Score: 62%</p>
+                    <span class="edu-year">Certified</span>
+                </div>
+            </div>
         </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section reveal">
+    <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Skills & Tech</h2>
+    </div>
+    <div class="skills-universe">
+
+        <div class="skill-category">
+            <h3 class="cat-title">Languages</h3>
+            <div class="skill-chips">
+                <div class="skill-chip" data-level="90"><span class="chip-icon">🌐</span>HTML/CSS<div class="chip-bar"><div style="--w:90%"></div></div></div>
+                <div class="skill-chip" data-level="85"><span class="chip-icon">⚡</span>JavaScript<div class="chip-bar"><div style="--w:85%"></div></div></div>
+                <div class="skill-chip" data-level="80"><span class="chip-icon">🐍</span>Python<div class="chip-bar"><div style="--w:80%"></div></div></div>
+                <div class="skill-chip" data-level="75"><span class="chip-icon">⚙️</span>C / C++<div class="chip-bar"><div style="--w:75%"></div></div></div>
+                <div class="skill-chip" data-level="65"><span class="chip-icon">🐚</span>Shell Script<div class="chip-bar"><div style="--w:65%"></div></div></div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3 class="cat-title">Frameworks & Platforms</h3>
+            <div class="skill-chips">
+                <div class="skill-chip" data-level="80"><span class="chip-icon">▲</span>Next.js<div class="chip-bar"><div style="--w:80%"></div></div></div>
+                <div class="skill-chip" data-level="75"><span class="chip-icon">📱</span>Flutter<div class="chip-bar"><div style="--w:75%"></div></div></div>
+                <div class="skill-chip" data-level="70"><span class="chip-icon">🤖</span>Android (Java)<div class="chip-bar"><div style="--w:70%"></div></div></div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3 class="cat-title">Backend & DB</h3>
+            <div class="skill-chips">
+                <div class="skill-chip" data-level="75"><span class="chip-icon">🔥</span>Firebase<div class="chip-bar"><div style="--w:75%"></div></div></div>
+                <div class="skill-chip" data-level="70"><span class="chip-icon">⚡</span>Supabase<div class="chip-bar"><div style="--w:70%"></div></div></div>
+                <div class="skill-chip" data-level="65"><span class="chip-icon">📮</span>Postman (API)<div class="chip-bar"><div style="--w:65%"></div></div></div>
+                <div class="skill-chip" data-level="60"><span class="chip-icon">☁️</span>Render (Deploy)<div class="chip-bar"><div style="--w:60%"></div></div></div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3 class="cat-title">Design & 3D</h3>
+            <div class="skill-chips">
+                <div class="skill-chip" data-level="90"><span class="chip-icon">🎨</span>Figma<div class="chip-bar"><div style="--w:90%"></div></div></div>
+                <div class="skill-chip" data-level="75"><span class="chip-icon">🎲</span>Blender 3D<div class="chip-bar"><div style="--w:75%"></div></div></div>
+                <div class="skill-chip" data-level="80"><span class="chip-icon">✏️</span>Canva<div class="chip-bar"><div style="--w:80%"></div></div></div>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3 class="cat-title">Hardware & IoT</h3>
+            <div class="skill-chips">
+                <div class="skill-chip" data-level="70"><span class="chip-icon">🤖</span>Arduino<div class="chip-bar"><div style="--w:70%"></div></div></div>
+                <div class="skill-chip" data-level="65"><span class="chip-icon">🍓</span>Raspberry Pi<div class="chip-bar"><div style="--w:65%"></div></div></div>
+            </div>
+        </div>
+
     </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section reveal">
     <div class="section-header">
-        <span class="section-num">02</span>
-        <h2 class="section-title">Services</h2>
+        <span class="section-num">03</span>
+        <h2 class="section-title">What I Do</h2>
     </div>
     <div class="services-grid">
+
         <div class="service-card tilt-card">
             <div class="service-icon">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="6" r="1" fill="currentColor"/><circle cx="9.5" cy="6" r="1" fill="currentColor"/></svg>
             </div>
             <h3>Web Development</h3>
-            <p>Responsive, modern websites that perform across all devices — focused on speed, scalability, and clean code.</p>
+            <p>Responsive websites and full-stack web apps using HTML, CSS, JS, and Next.js — from landing pages to complex platforms.</p>
+            <div class="service-tags"><span>Next.js</span><span>HTML/CSS</span><span>JS</span></div>
             <div class="card-hover-bar"></div>
         </div>
+
         <div class="service-card tilt-card">
             <div class="service-icon">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="18" r="1" fill="currentColor"/></svg>
+            </div>
+            <h3>Mobile App Dev</h3>
+            <p>Cross-platform mobile apps with Flutter, and native Android development — connected to Firebase or Supabase backends.</p>
+            <div class="service-tags"><span>Flutter</span><span>Android</span><span>Firebase</span></div>
+            <div class="card-hover-bar"></div>
+        </div>
+
+        <div class="service-card tilt-card">
+            <div class="service-icon">
+                <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
             </div>
             <h3>UI/UX Design</h3>
-            <p>Clean, user-friendly interfaces in Figma — from wireframe to polished prototype with smooth UX flows.</p>
+            <p>End-to-end design in Figma — wireframes, prototypes, and design systems with strong UX principles and clean aesthetics.</p>
+            <div class="service-tags"><span>Figma</span><span>Wireframing</span><span>Prototyping</span></div>
             <div class="card-hover-bar"></div>
         </div>
+
         <div class="service-card tilt-card">
             <div class="service-icon">
-                <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/></svg>
+                <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             </div>
-            <h3>Automation</h3>
-            <p>Python and shell scripts that eliminate repetitive tasks, saving time and improving workflow efficiency.</p>
+            <h3>3D Modeling</h3>
+            <p>3D assets, animations, and visual renderings using Blender — for portfolios, game assets, product visualization, and more.</p>
+            <div class="service-tags"><span>Blender</span><span>Animation</span><span>3D</span></div>
             <div class="card-hover-bar"></div>
         </div>
+
+        <div class="service-card tilt-card">
+            <div class="service-icon">
+                <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2v-4M9 21H5a2 2 0 01-2-2v-4m0 0h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>IoT & Hardware</h3>
+            <p>Arduino and Raspberry Pi projects — sensors, automation systems, data logging, and physical computing prototypes.</p>
+            <div class="service-tags"><span>Arduino</span><span>Raspberry Pi</span><span>IoT</span></div>
+            <div class="card-hover-bar"></div>
+        </div>
+
+        <div class="service-card tilt-card">
+            <div class="service-icon">
+                <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><path d="M8 9l3 3-3 3M13 15h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Automation & Scripting</h3>
+            <p>Python and Shell scripts to eliminate repetitive tasks, automate workflows, and improve developer productivity.</p>
+            <div class="service-tags"><span>Python</span><span>Shell</span><span>C++</span></div>
+            <div class="card-hover-bar"></div>
+        </div>
+
     </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="section reveal">
     <div class="section-header">
-        <span class="section-num">03</span>
+        <span class="section-num">04</span>
         <h2 class="section-title">Projects</h2>
     </div>
+
     <div class="projects-list">
 
-        <div class="project-item tilt-card" data-index="01">
+        <div class="project-item tilt-card">
             <div class="project-img-wrap">
-                <img src="./images/tictactoe.png" alt="Tic Tac Toe">
-                <div class="project-img-overlay">
-                    <span>View Project →</span>
-                </div>
+                <img src="./images/tictactoe.png" alt="Tic Tac Toe Game">
+                <div class="project-img-overlay"><span>View →</span></div>
             </div>
             <div class="project-info">
                 <div class="project-meta">
                     <span class="project-tag">JavaScript</span>
                     <span class="project-tag">Game Dev</span>
+                    <span class="project-tag">Web</span>
                 </div>
                 <h3>Tic Tac Toe Game</h3>
-                <p>Interactive browser-based game with real-time gameplay logic, score tracking, and a sleek dark UI that makes something classic feel fresh.</p>
+                <p>Interactive browser-based game with real-time gameplay logic, score tracking, win detection, and a sleek dark UI. Built fully in vanilla JS with no libraries.</p>
                 <div class="project-links">
-                    <a href="https://rashmit-cs.github.io/tictactoe/" target="_blank" class="proj-link">🌐 Live Demo</a>
-                    <a href="https://github.com/rashmit-cs/tictactoe" target="_blank" class="proj-link">💻 Source</a>
+                    <a href="https://rashmit-cs.github.io/tictactoe/" target="_blank" class="proj-link primary-link">🌐 Live Demo</a>
+                    <a href="https://github.com/rashmit-cs/tictactoe" target="_blank" class="proj-link">💻 Code</a>
                 </div>
             </div>
         </div>
 
-        <div class="project-item tilt-card" data-index="02">
+        <div class="project-item tilt-card">
             <div class="project-img-wrap">
                 <img src="./images/cams.png" alt="CAMS App">
-                <div class="project-img-overlay">
-                    <span>View Project →</span>
-                </div>
+                <div class="project-img-overlay"><span>View →</span></div>
             </div>
             <div class="project-info">
                 <div class="project-meta">
                     <span class="project-tag">Flutter</span>
                     <span class="project-tag">Mobile</span>
+                    <span class="project-tag">Firebase</span>
                 </div>
-                <h3>CAMS App</h3>
-                <p>College Activity Management System — a mobile app handling announcements, updates, and student activities with a clean purple-forward design.</p>
+                <h3>CAMS — College Activity Management</h3>
+                <p>A Flutter mobile app for managing college announcements, student activities, and updates. Features role-based access, real-time data via Firebase, and a clean purple UI.</p>
                 <div class="project-links">
-                    <a href="https://github.com/rashmit-cs/cams" target="_blank" class="proj-link">💻 Source</a>
+                    <a href="https://github.com/rashmit-cs/cams" target="_blank" class="proj-link primary-link">💻 Source Code</a>
                 </div>
             </div>
         </div>
 
-        <div class="project-item tilt-card" data-index="03">
+        <div class="project-item tilt-card">
             <div class="project-img-wrap">
-                <img src="./images/figma.png" alt="Eco Tourism UI">
-                <div class="project-img-overlay">
-                    <span>View Project →</span>
-                </div>
+                <img src="./images/figma.png" alt="Eco Tourism App UI">
+                <div class="project-img-overlay"><span>View →</span></div>
             </div>
             <div class="project-info">
                 <div class="project-meta">
                     <span class="project-tag">Figma</span>
                     <span class="project-tag">UI/UX</span>
+                    <span class="project-tag">Mobile Design</span>
                 </div>
-                <h3>Eco Tourism App</h3>
-                <p>Complete mobile UI/UX prototype for an eco-tourism platform — search, trip listings, and navigation flow with a strong visual identity.</p>
+                <h3>Eco Tourism App — Figma Design</h3>
+                <p>Full mobile UI/UX prototype for an eco-tourism platform — trip listings, search, booking flows, and navigation with a nature-inspired design system. Built at the college UI/UX workshop, Nov–Dec 2024.</p>
                 <div class="project-links">
-                    <a href="https://www.figma.com/design/cq2MvI7oUdu8PXXe0fAoCv/ECO-TOURISM" target="_blank" class="proj-link">🎨 View Design</a>
+                    <a href="https://www.figma.com/design/cq2MvI7oUdu8PXXe0fAoCv/ECO-TOURISM" target="_blank" class="proj-link primary-link">🎨 View Design</a>
                 </div>
             </div>
         </div>
@@ -237,8 +344,8 @@
 <!-- CTA -->
 <section class="cta-section reveal">
     <div class="cta-inner">
-        <p class="cta-pre">Got an idea?</p>
-        <h2 class="cta-title">Let's build something<br><em>extraordinary.</em></h2>
+        <p class="cta-pre">— open to freelance & internships —</p>
+        <h2 class="cta-title">Got an idea?<br>Let's make it <em>real.</em></h2>
         <a href="#contact" class="btn-primary large">Start a Project →</a>
     </div>
 </section>
@@ -246,30 +353,29 @@
 <!-- CONTACT -->
 <section id="contact" class="section reveal">
     <div class="section-header">
-        <span class="section-num">04</span>
-        <h2 class="section-title">Contact</h2>
+        <span class="section-num">05</span>
+        <h2 class="section-title">Contact Me</h2>
     </div>
     <div class="contact-grid">
         <div class="contact-info">
-            <p>Have an idea or project? I'd love to hear about it. Drop me a message and I'll get back to you within 24 hours.</p>
+            <p>Have a project, internship, or collab in mind? I'm available for freelance work and open to exciting opportunities. Let's talk.</p>
             <div class="contact-details">
+                <a href="tel:+919307974659" class="contact-link">📞 +91 93079 74659</a>
                 <a href="mailto:rashmitit@gmail.com" class="contact-link">📧 rashmitit@gmail.com</a>
                 <a href="https://github.com/rashmit-cs" target="_blank" class="contact-link">💻 github.com/rashmit-cs</a>
+                <span class="contact-link">📍 Verna, Goa, India</span>
             </div>
         </div>
         <form id="contact-form" action="https://formspree.io/f/mdaygobv" method="POST">
-            <div class="form-group">
-                <input type="text" name="name" placeholder="Your Name" required>
+            <div class="form-row">
+                <div class="form-group"><input type="text" name="name" placeholder="Your Name" required></div>
+                <div class="form-group"><input type="email" name="email" placeholder="Your Email" required></div>
             </div>
-            <div class="form-group">
-                <input type="email" name="email" placeholder="Your Email" required>
-            </div>
-            <div class="form-group">
-                <textarea name="message" placeholder="Tell me about your project..." required></textarea>
-            </div>
+            <div class="form-group"><input type="text" name="subject" placeholder="Subject (e.g. Freelance Project)"></div>
+            <div class="form-group"><textarea name="message" placeholder="Tell me about your project or idea..." required></textarea></div>
             <button type="submit" class="btn-primary">
                 <span>Send Message</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8.5 3M13 7.5L8.5 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
             </button>
             <p class="form-status" id="form-status"></p>
         </form>
@@ -280,16 +386,16 @@
 <footer class="footer">
     <div class="footer-inner">
         <span class="footer-logo">RB.</span>
-        <p>© 2026 Rashmit Bhosale — Built with HTML, CSS & JS</p>
+        <p>© 2026 Rashmit Bhosale · BSc CS · Goa, India</p>
         <div class="footer-links">
             <a href="https://github.com/rashmit-cs" target="_blank">GitHub</a>
+            <a href="mailto:rashmitit@gmail.com">Email</a>
         </div>
     </div>
 </footer>
 
-<!-- SCROLL TO TOP -->
 <button id="scrollTopBtn" aria-label="Back to top">
-    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 15V3M9 3L4 8M9 3L14 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 14V4M9 4L4.5 8.5M9 4L13.5 8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
 <script src="script.js"></script>
